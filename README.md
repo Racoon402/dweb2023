@@ -1,4 +1,5 @@
-<html>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -109,9 +110,14 @@
 
     </main>
     <footer>
-        <div class="container d-flex">
-            <div class="pt-5 pb-5">
-                어의궁
+        <div class="container bg-light ">
+            <div class="row">
+                <div class="col-9 ms-3 pt-5 pb-5">
+                    어의궁
+                </div>
+                <div class="col ms-3 pt-5 pb-5">
+                    서울과학기술대학교
+                </div>
             </div>
         </div>
     </footer>
