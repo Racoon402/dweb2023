@@ -100,7 +100,7 @@
                 </div>
                 <div class="card col m-3" style="width: 18rem;">
                     <div class="card-body">
-                        <e class="fa-solid fa-list fa-6x pt-2 pb-4"></i>
+                        <i class="fa-solid fa-list fa-6x pt-2 pb-4"></i>
                             <h1 class="card-text text-center mt-3 pt-1"> 게시판</h1>
                     </div>
                 </div>
