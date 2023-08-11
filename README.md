@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -27,9 +28,9 @@
                         <a class="nav-link fs-4" href="#" id="introDropdown" role="button"
                             data-bs-toggle="dropdown">소개</a>
                         <ul class="dropdown-menu" aria-labelledby="introDropdown">
-                            <li><a class="dropdown-item" href="#"> 동아리소개</a></li>
-                            <li><a class="dropdown-item" href="#"> 조직도 </a></li>
-                            <li><a class="dropdown-item" href="#"> 오시는 길 </a></li>
+                            <li><a class="dropdown-item" href="https://racoon402.github.io/dweb2023/intro_page"> 동아리소개</a></li>
+                            <li><a class="dropdown-item" href="https://racoon402.github.io/dweb2023/intro_group"> 조직도 </a></li>
+                            <li><a class="dropdown-item" href="https://racoon402.github.io/dweb2023/intro_map"> 오시는 길 </a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -51,7 +52,7 @@
             </div>
         </div>
     </nav>
-    <main>
+    <main style="min-height: 53rem;">
         <div id="carouselExampleCaptions" class="carousel slide container" data-bs-ride="false">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -107,10 +108,9 @@
                 </div>
             </div>
         </div>
-
     </main>
-    <footer>
-        <div class="container bg-light ">
+    <footer class="bd-footer bg-light mt-5">
+        <div class="container">
             <div class="row">
                 <div class="col-9 ms-3 pt-5 pb-5">
                     어의궁
@@ -121,7 +121,6 @@
             </div>
         </div>
     </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/2fad28f04d.js" crossorigin="anonymous"></script>
 </body>
