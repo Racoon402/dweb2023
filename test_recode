@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>습사일지</title>
     <link href="test.css" rel="stylesheet">
 </head>
+
 <body>
     <div>
         <table class="center">
@@ -46,75 +48,86 @@
                 </td>
             </tr>
         </table>
-        <div id="inputContainer">
-            <label for="rowsInput">Number of Rows:</label>
-            <input type="number" id="rowsInput" min="1">
-            <label for="colsInput">Number of Columns:</label>
-            <input type="number" id="colsInput" min="1">
-            <button onclick="createTable()">Create Table</button>
-        </div>
-        
-        <div id="tableContainer"></div>
-        
-        <button id="resetButton" onclick="resetTable()" style="display: none;">Reset Table</button>
-        <button id="saveButton" onclick="saveTable()" style="display: none;">Save as JSON</button>
-            
+        <div id="tableContainer">
+            <table id="recode" class="center recode">
+                <tr>
+                    <th colspan="6">습사일지</th>
+                </tr>
+                <tr>
+                    <td>1순</td>
+                    <td><select>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select></td>
+                    <td><select>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select></td>
+                    <td><select>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select></td>
+                    <td><select>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select></td>
+                    <td><select>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select></td>
+                </tr>
+            </table>
+
+        </div><br />
+
+        <button onclick="createTable()">추가하기</button>
+        <button id="removebutton" onclick="deleteTableRow()" style="display: none;">삭제하기</button>
+
     </div>
-     
+
     <script>
-        let tableData = []; // Array to store table data
-    
+        let count = 2;
         function createTable() {
-            const rows = parseInt(document.getElementById("rowsInput").value);
-            const cols = parseInt(document.getElementById("colsInput").value);
-    
-            if (isNaN(rows) || isNaN(cols) || rows <= 0 || cols <= 0) {
-                alert("Please enter valid row and column numbers.");
-                return;
-            }
-    
-            const inputContainer = document.getElementById("inputContainer");
-            inputContainer.style.display = "none"; // Hide input fields, labels, and button
-    
-            const resetButton = document.getElementById("resetButton");
-            resetButton.style.display = "block"; // Show the Reset button
-    
-            const saveButton = document.getElementById("saveButton");
-            saveButton.style.display = "block"; // Show the Save button
-    
-            const tableContainer = document.getElementById("tableContainer");
-            tableContainer.innerHTML = "";
-    
-            const table = document.createElement("table");
-            table.classList.add("center");
-    
-            const headerRow = document.createElement("tr");
-            const headerCell = document.createElement("th");
-            headerCell.setAttribute("colspan", cols.toString());
-            headerCell.textContent = "asd";
-            headerRow.appendChild(headerCell);
-            table.appendChild(headerRow);
-    
-            for (let i = 0; i < rows; i++) {
-                const rowData = [];
-                const row = document.createElement("tr");
-                for (let j = 0; j < cols; j++) {
-                    const cell = document.createElement("td");
-                    if (i === 0 && j === 0) {
-                        cell.textContent = "";
-                    } else {
-                        const dropdown = createDropdown(rowData);
-                        cell.appendChild(dropdown);
-                    }
-                    row.appendChild(cell);
+
+            const removebutton = document.getElementById("removebutton");
+            removebutton.style.display = "block"; // Show the Reset button
+
+            const table = document.getElementById("recode");
+
+            const rowData = [];
+            const row = document.createElement("tr");
+            for (let j = 0; j < 6; j++) {
+                const cell = document.createElement("td");
+                if (j === 0) {
+                    cell.textContent = count + "순";
+                } else {
+                    const dropdown = createDropdown(rowData);
+                    cell.appendChild(dropdown);
                 }
-                table.appendChild(row);
-                tableData.push(rowData);
+                row.appendChild(cell);
             }
-    
+            table.appendChild(row);
+
+
             tableContainer.appendChild(table);
+            count++;
         }
-    
+
         function createDropdown(rowData) {
             const dropdown = document.createElement("select");
             for (let i = 1; i <= 5; i++) {
@@ -123,41 +136,29 @@
                 option.text = i;
                 dropdown.appendChild(option);
             }
-            
-            dropdown.addEventListener("change", function() {
+
+            dropdown.addEventListener("change", function () {
                 const selectedIndex = this.selectedIndex;
                 rowData.push(selectedIndex);
             });
-            
+
             return dropdown;
         }
-    
-        function resetTable() {
-            const inputContainer = document.getElementById("inputContainer");
-            inputContainer.style.display = "block"; // Show input fields, labels, and button
-    
-            const resetButton = document.getElementById("resetButton");
-            resetButton.style.display = "none"; // Hide the Reset button
-    
-            const saveButton = document.getElementById("saveButton");
-            saveButton.style.display = "none"; // Hide the Save button
-    
-            const tableContainer = document.getElementById("tableContainer");
-            tableContainer.innerHTML = ""; // Clear the table
-            tableData = []; // Clear the table data
+
+        function deleteTableRow() {
+
+            const tableContainer = document.getElementById("recode");
+            tableContainer.removeChild(tableContainer.lastElementChild); // Clear the table
+
+            count--;
+            if (count === 2) {
+                const removebutton = document.getElementById("removebutton");
+                removebutton.style.display = "none"; // Hide the Reset button
+            }
         }
-    
-        function saveTable() {
-            const jsonData = JSON.stringify(tableData, null, 2);
-            const blob = new Blob([jsonData], { type: "application/json" });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement("a");
-            a.href = url;
-            a.download = "tableData.json";
-            a.click();
-            URL.revokeObjectURL(url);
-        }
+
     </script>
     <script src="https://kit.fontawesome.com/2fad28f04d.js" crossorigin="anonymous"></script>
 </body>
+
 </html>
