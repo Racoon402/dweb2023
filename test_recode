@@ -9,101 +9,74 @@
 </head>
 
 <body>
-    <div>
-        <table class="center">
+    <div id="targetContainer">
+        <table id="target" class="center">
             <th>
                 과녁
             </th>
             <tr>
-                <td>
+                <td onclick="handleClick(1)">
                     img
                 </td>
-                <td>
+                <td onclick="handleClick(2)">
                     <i class="fa-solid fa-arrow-up"></i>
                 </td>
-                <td>
+                <td onclick="handleClick(3)">
                     img
                 </td>
             </tr>
             <tr>
-                <td>
+                <td onclick="handleClick(4)">
                     <i class="fa-solid fa-arrow-left"></i>
                 </td>
-                <td>
+                <td onclick="handleClick(5)">
                     <i class="fa-solid fa-bullseye"></i>
                 </td>
-                <td>
+                <td onclick="handleClick(6)">
                     <i class="fa-solid fa-arrow-right"></i>
                 </td>
             </tr>
             <tr>
-                <td>
+                <td onclick="handleClick(7)">
                     img
                 </td>
-                <td>
+                <td onclick="handleClick(8)">
                     <i class="fa-solid fa-arrow-down"></i>
                 </td>
-                <td>
+                <td onclick="handleClick(9)">
                     img
                 </td>
             </tr>
         </table>
-        <div id="tableContainer">
-            <table id="recode" class="center recode">
-                <tr>
-                    <th colspan="6">습사일지</th>
-                </tr>
-                <tr>
-                    <td>1순</td>
-                    <td><select>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select></td>
-                    <td><select>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select></td>
-                    <td><select>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select></td>
-                    <td><select>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select></td>
-                    <td><select>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select></td>
-                </tr>
-            </table>
+    </div>
+    <div id="tableContainer">
+        <table id="recode" class="center">
+            <tr>
+                <th colspan="6">습사일지</th>
+            </tr>
+            <tr>
+                <td>1순</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        </table>
 
-        </div><br />
+    </div><br />
 
-        <button onclick="createTable()">추가하기</button>
-        <button id="removebutton" onclick="deleteTableRow()" style="display: none;">삭제하기</button>
+    <button onclick="createTable()">추가하기</button>
+    <button id="removebutton" onclick="deleteTableRow()" style="display: none;">삭제하기</button>
 
     </div>
 
     <script>
         let count = 2;
-        function createTable() {
+        let columnIndex = 1;
 
+        function createTable() {
             const removebutton = document.getElementById("removebutton");
             removebutton.style.display = "block"; // Show the Reset button
 
@@ -116,37 +89,16 @@
                 if (j === 0) {
                     cell.textContent = count + "순";
                 } else {
-                    const dropdown = createDropdown(rowData);
-                    cell.appendChild(dropdown);
+                    cell.textContent = ""; // Clear the cell content
                 }
                 row.appendChild(cell);
             }
             table.appendChild(row);
 
-
-            tableContainer.appendChild(table);
             count++;
         }
 
-        function createDropdown(rowData) {
-            const dropdown = document.createElement("select");
-            for (let i = 1; i <= 5; i++) {
-                const option = document.createElement("option");
-                option.value = i;
-                option.text = i;
-                dropdown.appendChild(option);
-            }
-
-            dropdown.addEventListener("change", function () {
-                const selectedIndex = this.selectedIndex;
-                rowData.push(selectedIndex);
-            });
-
-            return dropdown;
-        }
-
         function deleteTableRow() {
-
             const tableContainer = document.getElementById("recode");
             tableContainer.removeChild(tableContainer.lastElementChild); // Clear the table
 
@@ -155,6 +107,10 @@
                 const removebutton = document.getElementById("removebutton");
                 removebutton.style.display = "none"; // Hide the Reset button
             }
+        }
+
+        function handleClick(number) {
+            alert(number);
         }
 
     </script>
