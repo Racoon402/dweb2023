@@ -55,12 +55,12 @@
                 <th colspan="6">습사일지</th>
             </tr>
             <tr>
-                <td>1순</td>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
+                <td class="active">1순</td>
+                <td class="active"> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
             </tr>
         </table>
         </table>
@@ -74,8 +74,51 @@
 
     <script>
         let count = 2;
-        let rowIndex = 1;
-        let columnIndex = 1;
+        let selectRowIndex = -1;
+        let selectColumnIndex = -1;
+
+        const table = document.getElementById("recode");
+
+        table.addEventListener("click", function (event) {
+
+            const recodeRow = table.querySelectorAll('tr');
+            var clickedCell = event.target;
+
+            if (clickedCell.tagName === "TD") {
+                selectRowIndex = clickedCell.parentNode.rowIndex; // 행 번호
+                selectColumnIndex = clickedCell.cellIndex + 1; // 열 번호
+            }
+
+            if (selectColumnIndex === 1) {
+                const selectedRow = recodeRow[selectRowIndex].querySelectorAll('td:first-child');
+                const selectedCols = recodeRow[selectRowIndex].querySelectorAll('td');
+                for (let i = 1; i < count; i++) {
+                    const tempRow = recodeRow[i].querySelectorAll('td:first-child');
+                    tempRow[0].classList.remove('active');
+                    for (let j = 1; j < 6; j++) {
+                        const temp = recodeRow[i].querySelectorAll('td');
+                        temp[j].classList.remove('active');
+                    }
+                }
+                selectedRow[0].classList.add("active");
+                selectedCols[1].classList.add("active");
+
+            }
+            else {
+                const selectedRow = recodeRow[selectRowIndex].querySelectorAll('td:first-child');
+                const selectedCols = recodeRow[selectRowIndex].querySelectorAll('td');
+                for (let i = 1; i < count; i++) {
+                    const tempRow = recodeRow[i].querySelectorAll('td:first-child');
+                    tempRow[0].classList.remove('active');
+                    for (let j = 1; j < 6; j++) {
+                        const temp = recodeRow[i].querySelectorAll('td');
+                        temp[j].classList.remove('active');
+                    }
+                }
+                selectedRow[0].classList.add("active");
+                selectedCols[selectColumnIndex-1].classList.add("active");
+            }
+        });
 
         function createTable() {
             const removebutton = document.getElementById("removebutton");
@@ -107,21 +150,6 @@
             if (count === 2) {
                 const removebutton = document.getElementById("removebutton");
                 removebutton.style.display = "none"; // Hide the Reset button
-            }
-        }
-
-        function handleClick(number) {
-            const table = document.getElementById("recode");
-            const row = table.querySelectorAll('tr');
-            const value = row[1].querySelectorAll('td');
-            value[columnIndex].textContent = number;
-            for(i=1; i<6; i++){
-                value[i].classList.remove('active');
-            }
-            value[columnIndex].classList.add('active');
-            columnIndex++;
-            if(columnIndex >= 6){
-                columnIndex = 1;
             }
         }
 
