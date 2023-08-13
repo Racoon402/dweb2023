@@ -74,8 +74,8 @@
 
     <script>
         let count = 2;
-        let selectRowIndex = -1;
-        let selectColumnIndex = -1;
+        let selectRowIndex = 1;
+        let selectColumnIndex = 2;
 
         const table = document.getElementById("recode");
 
@@ -88,6 +88,11 @@
                 selectRowIndex = clickedCell.parentNode.rowIndex; // 행 번호
                 selectColumnIndex = clickedCell.cellIndex + 1; // 열 번호
             }
+            highlight()
+        });
+
+        function highlight(){
+            const recodeRow = table.querySelectorAll('tr');
 
             if (selectColumnIndex === 1) {
                 const selectedRow = recodeRow[selectRowIndex].querySelectorAll('td:first-child');
@@ -102,7 +107,17 @@
                 }
                 selectedRow[0].classList.add("active");
                 selectedCols[1].classList.add("active");
-
+                selectColumnIndex++;
+            }
+            else if(selectColumnIndex>=7){
+                for (let i = 1; i < count; i++) {
+                    const tempRow = recodeRow[i].querySelectorAll('td:first-child');
+                    tempRow[0].classList.remove('active');
+                    for (let j = 1; j < 6; j++) {
+                        const temp = recodeRow[i].querySelectorAll('td');
+                        temp[j].classList.remove('active');
+                    }
+                }
             }
             else {
                 const selectedRow = recodeRow[selectRowIndex].querySelectorAll('td:first-child');
@@ -118,7 +133,7 @@
                 selectedRow[0].classList.add("active");
                 selectedCols[selectColumnIndex-1].classList.add("active");
             }
-        });
+        }
 
         function createTable() {
             const removebutton = document.getElementById("removebutton");
@@ -140,6 +155,9 @@
             table.appendChild(row);
 
             count++;
+            selectColumnIndex = 1;
+            selectRowIndex = count-1;
+            highlight();
         }
 
         function deleteTableRow() {
@@ -151,6 +169,14 @@
                 const removebutton = document.getElementById("removebutton");
                 removebutton.style.display = "none"; // Hide the Reset button
             }
+        }
+
+        function handleClick(number) {
+            const row = table.querySelectorAll('#recode tr');
+            const value = row[selectRowIndex].querySelectorAll('td.active');
+            value[1].textContent = number;
+            selectColumnIndex++;
+            highlight();
         }
 
     </script>
