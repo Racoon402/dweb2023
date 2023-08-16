@@ -10,20 +10,20 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-sm bg-light">
-        <div class="container">
-            <a class="navbar-brand d-flex" href="https://racoon402.github.io/dweb2023/">
-                <img src="https://raw.githubusercontent.com/Racoon402/dweb2023/main/Logo-removebg.png" width="55px"
-                    height="55px">
-                <h1 class="ms-2 mt-1">어의궁</h1>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-lg">
+            <a class="navbar-brand d-flex " href="https://racoon402.github.io/dweb2023/">
+                <img src="https://raw.githubusercontent.com/Racoon402/dweb2023/main/source/Logo-removebg.png"
+                    width="55px" height="55px">
+                <h1 class="ms-2 mt-1 fs-1">어의궁</h1>
             </a>
-            <button class="navbar-toggler navbar-expand-sm" type="button" data-bs-toggle="collapse"
+            <button class="navbar-toggler navbar-expand-sm " type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse d-flex flex-row-reverse" id="navbarNav">
-                <ul class="navbar-nav">
+            <div class="collapse navbar-collapse position-relative" id="navbarNav">
+                <ul class="navbar-nav mb-2 mb-lg-0  position-absolute end-0">
                     <li class="nav-item dropdown">
                         <a class="nav-link fs-4" href="#" id="introDropdown" role="button"
                             data-bs-toggle="dropdown">소개</a>
@@ -40,47 +40,123 @@
                         <a class="nav-link fs-4" href="#" id="servicesDropdown" role="button"
                             data-bs-toggle="dropdown">서비스</a>
                         <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-                            <li><a class="dropdown-item" href="#"> 습사 일지</a></li>
-                            <li><a class="dropdown-item" href="#"> 습사 예약 </a></li>
+                            <li><a class="dropdown-item" href="https://racoon402.github.io/dweb2023/recode"> 습사 일지</a>
+                            </li>
+                            <li><a class="dropdown-item" href="https://racoon402.github.io/dweb2023/map"> 습사 예약 </a>
+                            </li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link fs-4" href="#" id="boardDropdown" role="button"
                             data-bs-toggle="dropdown">게시판</a>
+                        <ul class="dropdown-menu" aria-labelledby="introDropdown">
+                            <li><a class="dropdown-item" href="https://racoon402.github.io/dweb2023/board">
+                                    자유게시판</a></li>
+                        </ul>
                     </li>
-                    <li class="nav-item mt-2 ms-3">
+                    <a href="https://www.instagram.com/seoultech_archery/" class="mt-2 ms-3" id="instarTag">
                         <i class="fa-brands fa-instagram fa-2x"></i>
-                    </li>
+                    </a>
                 </ul>
             </div>
         </div>
     </nav>
-    <main style="min-height: 53rem;">
-        <div class="container mt-3">
-            <h1>국궁동아리 '어의궁'</h1>
-            <h4 class="ms-3"> 의를 좆는 활쏘기, 어의궁</h4>
-            <h4 class="ms-3"> 서울과학기술 대학교 유일무이한 국궁동아리</h4>
-
-            <h1 ms-3>국궁이란...</h1>
-
+    <main class="container-lg" style=" min-height: 53rem;">
+        <div class="m-3">
+            <div class="row m-3">
+                <div class="col-sm-6 card">
+                    <img src="https://raw.githubusercontent.com/Racoon402/dweb2023/main/source/ppl.png"
+                        class="card-img-top mt-2" style="width: 90px;">
+                    <div class="card-body">
+                        <h4>회장</h4>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">이름: 김민규</li>
+                            <li class="list-group-item">연락처: 010-1234-5678</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6 card">
+                    <img src="https://raw.githubusercontent.com/Racoon402/dweb2023/main/source/ppl.png"
+                        class="card-img-top mt-2" style="width: 90px;">
+                    <div class="card-body">
+                        <h4>부회장</h4>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">이름: 김수환</li>
+                            <li class="list-group-item">연락처: 010-1234-5678</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row m-3">
+                <div class="col-sm-6 col-lg-3 card">
+                    <img src="https://raw.githubusercontent.com/Racoon402/dweb2023/main/source/ppl.png"
+                        class="card-img-top mt-2" style="width: 90px;">
+                    <div class="card-body">
+                        <h4>교육부장</h4>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">이름: 유태기/li>
+                            <li class="list-group-item">연락처: 010-1234-5678</li>
+                        </ul>
+                    </div>
+                    
+                </div>
+                <div class="col-sm-6 col-lg-3 card">
+                    <img src="https://raw.githubusercontent.com/Racoon402/dweb2023/main/source/ppl.png"
+                        class="card-img-top mt-2" style="width: 90px;">
+                    <div class="card-body">
+                        <h4>기술부장</h4>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">이름: 김선우</li>
+                            <li class="list-group-item">연락처: 010-1234-5678</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3 card">
+                    <img src="https://raw.githubusercontent.com/Racoon402/dweb2023/main/source/ppl.png"
+                        class="card-img-top mt-2" style="width: 90px;">
+                    <div class="card-body">
+                        <h4>총무부장</h4>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">이름: 홍준희</li>
+                            <li class="list-group-item">연락처: 010-1234-5678</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3 card">
+                    <img src="https://raw.githubusercontent.com/Racoon402/dweb2023/main/source/ppl.png"
+                        class="card-img-top mt-2" style="width: 90px;">
+                    <div class="card-body">
+                        <h4>홍보부장</h4>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">이름: 최승주</li>
+                            <li class="list-group-item">연락처: 010-1234-5678</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
-    <footer class="bd-footer bg-light">
-        <div class="container">
+    <footer class="bd-footer bg-light mt-5">
+        <div class="container-lg">
             <div class="row">
-                <div class="col-9 ms-3 pt-5 pb-5">
-                    어의궁
+                <div class="col-9 pt-3 pb-3 ms-3">
+                    <strong class="fs-5">어의궁</strong>
+                    <p>Seoultech Archery</p>
+                    <div>서울 노원구 공릉로 232 서울과학기술대학교 제1학생회관</div>
                 </div>
-                <div class="col ms-3 pt-5 pb-5">
-                    서울과학기술대학교
+                <div class="col position-relative">
+                    <strong class=" mb-3 me-4 position-absolute bottom-0 end-0">
+                        서울과학기술대학교
+                    </strong>
                 </div>
             </div>
         </div>
     </footer>
 
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/2fad28f04d.js" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+    
 </body>
 
 </html>
