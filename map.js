@@ -7,7 +7,10 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
 var positions = [
-    
+    {
+        title: '어의궁',
+        latlng: new kakao.maps.LatLng(37.634177084795425, 127.07701634041676)
+    },
     {
         title: '석호정',
         latlng: new kakao.maps.LatLng(37.554532030692215, 126.99985287643284)
@@ -31,11 +34,8 @@ var positions = [
     {
         title: '활쏘아궁술클럽',
         latlng: new kakao.maps.LatLng(37.633885731121644, 127.07109085830616)
-    },
-    {
-        title: '어의궁',
-        latlng: new kakao.maps.LatLng(37.634177084795425, 127.07701634041676)
     }
+    
 ];
 
 // 마커 이미지의 이미지 주소입니다
@@ -83,7 +83,7 @@ function panTo(info) {
 // 배열에 추가된 마커들을 지도에 표시하거나 삭제하는 함수입니다
 function setMarkers(map) {
     for (var i = 0; i < markers.length; i++) {
-        markers[i].setMap(map);
+        markers[i+1].setMap(map);
     }
 }
 
