@@ -73,6 +73,31 @@
     background-color: #5E735D;
 }
 
+
+
+#borad-info{
+    height: 5%;
+    text-align: center;
+}
+.borad-line{
+    border-bottom: 1px solid  gray;
+    color: rgba(0, 0, 0, 0.1);
+    
+    height: 5%;
+    text-align: center;
+    color: black;
+}
+.borad-line a{
+    display: block;
+    text-align: end;
+    padding-right: 10px;
+    width: 100%;
+    text-decoration: none;
+    color: black;
+}
+.unshow{
+    display: none;
+}
 @media screen and (min-width: 992px) {
     .navbar .nav-item .dropdown-menu {
         display: none;
