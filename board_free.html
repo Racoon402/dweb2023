@@ -222,22 +222,6 @@
     <script src="https://kit.fontawesome.com/2fad28f04d.js" crossorigin="anonymous"></script>
     <script src="index.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var listItems = document.querySelectorAll('.list-group-item');
-            var navItems = document.querySelectorAll('.page-item');
-
-            listItems.forEach(function (item) {
-                item.addEventListener("click", function (event) {
-                    // 기존에 활성화된 요소의 클래스를 제거
-                    listItems.forEach(function (otherItem) {
-                        otherItem.classList.remove('active');
-                    });
-
-                    // 클릭한 요소에 활성화 클래스 추가
-                    event.currentTarget.classList.add('active');
-                });
-            });
-
             navItems.forEach(function (item) {
                 item.addEventListener("click", function (event) {
                     // 기존에 활성화된 요소의 클래스를 제거
