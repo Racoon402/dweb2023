@@ -6,14 +6,11 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 
 var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
-var markerPosition = new kakao.maps.LatLng(37.634177084795425, 127.07701634041676);
-
-// 마커를 생성합니다
-var marker = new kakao.maps.Marker({
-    position: markerPosition
-});
-
 var positions = [
+    {
+        title: '어의궁',
+        latlng: new kakao.maps.LatLng(37.634177084795425, 127.07701634041676)
+    },
     {
         title: '석호정',
         latlng: new kakao.maps.LatLng(37.554532030692215, 126.99985287643284)
@@ -59,6 +56,7 @@ for (var i = 0; i < positions.length; i++) {
         image: markerImage // 마커 이미지 
     });
 }
+
 document.addEventListener("DOMContentLoaded", function () {
 
     const accordionItems = document.querySelectorAll(".accordion-item");
@@ -88,12 +86,3 @@ function setMarkers(map) {
     }
 }
 
-// "마커 보이기" 버튼을 클릭하면 호출되어 배열에 추가된 마커를 지도에 표시하는 함수입니다
-function showMarkers() {
-    setMarkers(map)
-}
-
-// "마커 감추기" 버튼을 클릭하면 호출되어 배열에 추가된 마커를 지도에서 삭제하는 함수입니다
-function hideMarkers() {
-    setMarkers(null);
-}
