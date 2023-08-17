@@ -6,6 +6,13 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 
 var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
+var markerPosition = new kakao.maps.LatLng(37.634177084795425, 127.07701634041676);
+
+// 마커를 생성합니다
+var marker = new kakao.maps.Marker({
+    position: markerPosition
+});
+
 var positions = [
     {
         title: '석호정',
